@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf6;
+  --foreground: #4a1f2a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-body: "Avenir Next", "Avenir", "Trebuchet MS", "Gill Sans", sans-serif;
+  --font-display: "Iowan Old Style", "Baskerville", "Palatino Linotype", "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 184, 203, 0.3);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-serif-display {
+  font-family: var(--font-display);
+}
+
+.gift-box {
+  position: relative;
+  width: 210px;
+  height: 190px;
+  border-radius: 26px;
+  background: linear-gradient(150deg, #ffc9d8, #ff98b8);
+  box-shadow: 0 30px 70px rgba(229, 100, 140, 0.26);
+  animation: float-soft 3.8s ease-in-out infinite;
+}
+
+.gift-lid {
+  position: absolute;
+  top: -16px;
+  left: -2%;
+  width: 104%;
+  height: 40px;
+  border-radius: 16px;
+  background: linear-gradient(130deg, #ffb8cb, #ff88ad);
+}
+
+.gift-ribbon-vertical {
+  position: absolute;
+  left: 46%;
+  top: 0;
+  width: 16px;
+  height: 100%;
+  border-radius: 999px;
+  background: #fff4f7;
+}
+
+.gift-ribbon-horizontal {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: #fff4f7;
+}
+
+.gift-heart {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+}
+
+.animate-unwrapping {
+  animation: unwrap 0.9s ease forwards;
+}
+
+.animate-envelope-open {
+  animation: envelope-open 0.55s ease;
+}
+
+.letter-markdown h1,
+.letter-markdown h2,
+.letter-markdown h3 {
+  font-family: var(--font-display);
+  color: #6e2134;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.letter-markdown p,
+.letter-markdown li,
+.letter-markdown blockquote {
+  color: #5e2533;
+  line-height: 1.7;
+}
+
+.letter-markdown ul {
+  padding-left: 1.15rem;
+}
+
+.letter-markdown blockquote {
+  margin-left: 0;
+  border-left: 3px solid #f5b4c4;
+  padding-left: 0.75rem;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes unwrap {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.15) rotate(-6deg);
+    opacity: 0;
+  }
+}
+
+@keyframes envelope-open {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
