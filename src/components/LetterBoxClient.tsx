@@ -7,7 +7,6 @@ import { STORAGE_KEYS, readSet, writeSet } from "@/lib/progress";
 
 type LetterState = {
   id: string;
-  openedAt: number;
 };
 
 function isDateUnlocked(date?: string): boolean {
@@ -50,7 +49,7 @@ export function LetterBoxClient() {
     nextOpened.add(letter.id);
     writeSet(STORAGE_KEYS.openedLetters, nextOpened);
     setOpenedIds(nextOpened);
-    setOpened({ id: letter.id, openedAt: Date.now() });
+    setOpened({ id: letter.id });
   }
 
   const selected = opened ? visibleLetters.find((item) => item.id === opened.id) ?? null : null;
@@ -92,7 +91,7 @@ export function LetterBoxClient() {
 
       {selected ? (
         <section
-          key={opened?.openedAt}
+          key={opened?.id}
           className="animate-envelope-open rounded-3xl border border-rose-200/80 bg-white/90 p-5 shadow-md sm:p-7"
         >
           <div className="letter-markdown max-w-none">

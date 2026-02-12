@@ -5,21 +5,12 @@ import { STORAGE_KEYS, readBoolean, writeBoolean } from "@/lib/progress";
 
 export function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [enabled, setEnabled] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [enabled, setEnabled] = useState(() =>
+    typeof window !== "undefined" ? readBoolean(STORAGE_KEYS.musicOn, false) : false,
+  );
   const [available, setAvailable] = useState(true);
 
   useEffect(() => {
-    const saved = readBoolean(STORAGE_KEYS.musicOn, false);
-    setEnabled(saved);
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready) {
-      return;
-    }
-
     writeBoolean(STORAGE_KEYS.musicOn, enabled);
 
     const audio = audioRef.current;
@@ -35,7 +26,7 @@ export function MusicToggle() {
     void audio.play().catch(() => {
       setEnabled(false);
     });
-  }, [enabled, ready]);
+  }, [enabled]);
 
   const label = useMemo(() => {
     if (!available) {
