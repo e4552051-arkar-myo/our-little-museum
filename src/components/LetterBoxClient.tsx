@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import ReactMarkdown from "react-markdown"; // Dependency added for lightweight markdown rendering of letters.
 import { letters } from "@/data/letters";
 import { STORAGE_KEYS, readSet, writeSet } from "@/lib/progress";
+import { Dialog } from "@/components/ui/Dialog";
 
 type LetterState = {
   id: string;
@@ -89,20 +90,22 @@ export function LetterBoxClient() {
         })}
       </section>
 
-      {selected ? (
-        <section
-          key={opened?.id}
-          className="animate-envelope-open rounded-3xl border border-rose-200/80 bg-white/90 p-5 shadow-md sm:p-7"
-        >
-          <div className="letter-markdown max-w-none">
-            <ReactMarkdown>{selected.markdown}</ReactMarkdown>
+      <Dialog open={!!selected} onClose={() => setOpened(null)} title={selected?.title ?? "Letter"}>
+        {selected ? (
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.2em] text-rose-600">{formatDate(selected.date)}</p>
+            <div className="letter-markdown max-w-none">
+              <ReactMarkdown>{selected.markdown}</ReactMarkdown>
+            </div>
           </div>
-        </section>
-      ) : (
+        ) : null}
+      </Dialog>
+
+      {!selected ? (
         <section className="rounded-3xl border border-dashed border-rose-300 bg-white/55 p-8 text-center text-sm text-rose-700">
           Pick an envelope to read a letter.
         </section>
-      )}
+      ) : null}
     </div>
   );
 }

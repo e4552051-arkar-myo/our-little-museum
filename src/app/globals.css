@@ -118,6 +118,21 @@ body {
   animation: heart-pulse 1.15s ease-in-out infinite;
 }
 
+.dialog-panel {
+  animation: dialog-fade-in 0.22s ease-out;
+}
+
+.dialog-float-heart {
+  position: absolute;
+  bottom: -16px;
+  font-size: 14px;
+  color: rgba(248, 161, 188, 0.32);
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  animation: dialog-heart-float linear infinite;
+  will-change: transform, opacity;
+}
+
 .letter-markdown h1,
 .letter-markdown h2,
 .letter-markdown h3 {
@@ -211,6 +226,34 @@ body {
   to {
     transform: translate3d(0, 0, 0);
     opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes dialog-heart-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  20% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-8px, -220px, 0) scale(1.05);
   }
 }
 
