@@ -52,6 +52,28 @@ body {
   display: none;
 }
 
+.overscroll-contain-modal {
+  overscroll-behavior: contain;
+}
+
+.ios-touch-scroll {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lightbox-image-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.lightbox-meta-panel {
+  max-height: min(28vh, 220px);
+  overflow-y: auto;
+}
+
 .page-fade-in {
   animation: page-fade-in 0.32s ease-out;
 }

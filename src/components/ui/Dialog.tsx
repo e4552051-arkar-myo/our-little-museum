@@ -8,9 +8,19 @@ type DialogProps = {
   title: string;
   children: ReactNode;
   panelClassName?: string;
+  contentClassName?: string;
+  contentScrollable?: boolean;
 };
 
-export function Dialog({ open, onClose, title, children, panelClassName }: DialogProps) {
+export function Dialog({
+  open,
+  onClose,
+  title,
+  children,
+  panelClassName,
+  contentClassName,
+  contentScrollable = true,
+}: DialogProps) {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -87,7 +97,7 @@ export function Dialog({ open, onClose, title, children, panelClassName }: Dialo
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className={`dialog-panel relative w-full max-w-2xl rounded-3xl border border-rose-200/75 bg-[#fff8f4] p-5 text-rose-900 shadow-[0_24px_90px_rgba(118,41,69,0.28)] sm:p-7 ${panelClassName ?? ""}`}
+        className={`dialog-panel overscroll-contain-modal relative w-full max-w-2xl rounded-3xl border border-rose-200/75 bg-[#fff8f4] p-5 text-rose-900 shadow-[0_24px_90px_rgba(118,41,69,0.28)] sm:p-7 ${panelClassName ?? ""}`}
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -101,7 +111,11 @@ export function Dialog({ open, onClose, title, children, panelClassName }: Dialo
         </button>
 
         <h2 className="pr-10 font-serif-display text-3xl text-rose-900">{title}</h2>
-        <div className="mt-4 max-h-[75vh] overflow-y-auto pr-1">{children}</div>
+        <div
+          className={`${contentScrollable ? "mt-4 max-h-[75vh] overflow-y-auto pr-1 ios-touch-scroll" : "mt-4 min-h-0"} ${contentClassName ?? ""}`}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
