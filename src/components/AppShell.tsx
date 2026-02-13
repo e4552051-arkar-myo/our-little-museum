@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LockButton } from "@/components/LockButton";
 
 type AppShellProps = {
   title: string;
@@ -15,14 +16,19 @@ export function AppShell({ title, subtitle, children, showHome = true }: AppShel
       <div className="pointer-events-none absolute -right-10 bottom-20 -z-10 h-56 w-56 rounded-full bg-amber-200/40 blur-3xl" />
 
       <main className="page-fade-in mx-auto w-full max-w-5xl">
-        {showHome ? (
-          <Link
-            href="/home"
-            className="mb-6 inline-flex rounded-full border border-rose-300/70 bg-white/80 px-4 py-2 text-sm font-semibold text-rose-800 transition hover:bg-white"
-          >
-            ← Back Home
-          </Link>
-        ) : null}
+        <div className="mb-6 flex items-center justify-between gap-2">
+          {showHome ? (
+            <Link
+              href="/home"
+              className="inline-flex rounded-full border border-rose-300/70 bg-white/80 px-4 py-2 text-sm font-semibold text-rose-800 transition hover:bg-white"
+            >
+              ← Back Home
+            </Link>
+          ) : (
+            <span />
+          )}
+          <LockButton />
+        </div>
 
         <header className="mb-6 text-center sm:mb-10">
           <h1 className="font-serif-display text-4xl tracking-tight text-rose-900 sm:text-5xl">{title}</h1>

@@ -7,6 +7,7 @@ A production-ready Next.js (App Router) memory web app with:
 - Letter Box envelope grid with open animation and markdown-rendered letters
 - Optional date lock per letter
 - Hidden Surprise Letter unlock (after opening 5 letters or viewing 20 photos)
+- Local passcode lock for Gallery + Letter Box (one-time unlock per device)
 - PWA setup (manifest, service worker, app icons)
 - Music toggle UI (plays local file if available)
 
@@ -65,3 +66,10 @@ If the music file is missing, the toggle stays visible but shows unavailable beh
 6. Deploy.
 
 No external database or environment variables are required for the current version.
+
+## Passcode Lock
+
+- Passcode config lives in: `src/lib/passcode.ts`
+- Change `PASSCODE` to your preferred value.
+- Unlock state is saved in browser `localStorage` (`STORAGE_KEY` in same file).
+- Use the `Lock` button in the header to clear local unlock state on that device.

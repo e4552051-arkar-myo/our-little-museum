@@ -7,9 +7,10 @@ type DialogProps = {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  panelClassName?: string;
 };
 
-export function Dialog({ open, onClose, title, children }: DialogProps) {
+export function Dialog({ open, onClose, title, children, panelClassName }: DialogProps) {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -86,7 +87,7 @@ export function Dialog({ open, onClose, title, children }: DialogProps) {
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="dialog-panel relative w-full max-w-2xl rounded-3xl border border-rose-200/75 bg-[#fff8f4] p-5 text-rose-900 shadow-[0_24px_90px_rgba(118,41,69,0.28)] sm:p-7"
+        className={`dialog-panel relative w-full max-w-2xl rounded-3xl border border-rose-200/75 bg-[#fff8f4] p-5 text-rose-900 shadow-[0_24px_90px_rgba(118,41,69,0.28)] sm:p-7 ${panelClassName ?? ""}`}
         onClick={(event) => event.stopPropagation()}
       >
         <button

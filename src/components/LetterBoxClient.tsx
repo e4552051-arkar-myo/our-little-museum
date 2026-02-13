@@ -100,12 +100,6 @@ export function LetterBoxClient() {
           </div>
         ) : null}
       </Dialog>
-
-      {!selected ? (
-        <section className="rounded-3xl border border-dashed border-rose-300 bg-white/55 p-8 text-center text-sm text-rose-700">
-          Pick an envelope to read a letter.
-        </section>
-      ) : null}
     </div>
   );
 }

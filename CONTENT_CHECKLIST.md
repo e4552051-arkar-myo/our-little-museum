@@ -79,15 +79,15 @@ Rules:
 - The letter stays locked until that date on the user device.
 
 ## Passcode
-A passcode is not currently implemented.
+Passcode is implemented locally (no backend).
 
-If you want one, easiest approach:
-1. Add `passcodeHash` in a new config file (or `.env.local` for private usage).
-2. Create a small gate component that asks for a code before showing `/gallery` and `/letters`.
-3. Save unlock state in `localStorage` (for example key: `olm_passcode_ok`).
+Where to change it:
+- Edit `src/lib/passcode.ts`
+- Update `PASSCODE` constant
+- Optional hint text: `PASSCODE_HINT`
 
-Minimal client-side approach (quick, not secure):
-- Compare typed code to a hardcoded string in a client component.
-- On success, set `localStorage` flag and render children.
-
-If you want, I can implement a proper passcode gate next.
+How unlock works:
+- Gallery and Letter Box are gated.
+- After correct passcode entry, unlock is stored in `localStorage` using `STORAGE_KEY`.
+- On that device/browser, user only enters once unless lock is cleared.
+- Use the `Lock` button in the header to clear unlock and require passcode again.
