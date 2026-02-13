@@ -53,7 +53,7 @@ export const memories: Memory[] = [
       "us",
       "everyday",
       "nature",
-      "travel"
+      "home"
     ],
     "aspect": "landscape"
   },
@@ -67,7 +67,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "club"
     ],
     "aspect": "landscape"
   },
@@ -96,8 +96,8 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
-      "travel"
+      "bar",
+      "night"
     ],
     "aspect": "landscape"
   },
@@ -126,7 +126,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_0326.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "night",
       "nature"
     ],
     "aspect": "landscape"
@@ -141,7 +141,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "home"
     ],
     "aspect": "landscape"
   },
@@ -155,7 +155,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "home"
     ],
     "aspect": "landscape"
   },
@@ -169,7 +169,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
+      "home",
       "sunset"
     ],
     "aspect": "landscape"
@@ -184,7 +184,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "night"
     ],
     "aspect": "landscape"
   },
@@ -198,7 +198,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "dinner"
     ],
     "aspect": "landscape"
   },
@@ -212,6 +212,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
+      "travel",
       "nature"
     ],
     "aspect": "landscape"
@@ -225,7 +226,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_0871.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "snow",
       "nature"
     ],
     "aspect": "landscape"
@@ -239,7 +240,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_0884.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "travel",
       "nature"
     ],
     "aspect": "landscape"
@@ -253,7 +254,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_3798.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "travel",
       "nature",
       "sunset"
     ],
@@ -269,7 +270,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature"
+      "travel"
     ],
     "aspect": "landscape"
   },
@@ -299,8 +300,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
-      "celebration",
+      "dinner",
       "sunset"
     ],
     "aspect": "landscape"
@@ -315,7 +315,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
+      "travel",
       "celebration"
     ],
     "aspect": "landscape"
@@ -344,7 +344,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_1454.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "snow",
       "nature",
       "celebration"
     ],
@@ -353,13 +353,13 @@ export const memories: Memory[] = [
   {
     "id": "img-1455",
     "date": "2026-01-05",
-    "title": "A cozy chapter",
+    "title": "Snow Angel at University",
     "caption": "The campus was covered in snow, and you made it even brighter with your snow-angel shape.",
     "location": "Lat: 54.5716, Lng: -1.2351",
     "imageUrl": "/photos/IMG_1455.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "snow",
       "nature",
       "celebration"
     ],
@@ -375,7 +375,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
+      "travel",
       "celebration",
       "sunset"
     ],
@@ -405,8 +405,8 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_2304.JPG",
     "tags": [
       "us",
-      "everyday",
-      "cozy",
+      "travel",
+      "sad",
       "celebration"
     ],
     "aspect": "portrait"
@@ -414,15 +414,14 @@ export const memories: Memory[] = [
   {
     "id": "img-2317",
     "date": "2026-01-07",
-    "title": "Reflected Togethe",
+    "title": "Reflected Together",
     "caption": "Even in the reflection of a passport scanner, it was still us.",
     "location": "Manchester",
     "imageUrl": "/photos/IMG_2317.JPEG",
     "tags": [
       "us",
-      "everyday",
-      "nature",
-      "celebration"
+      "travel",
+      "sad"
     ],
     "aspect": "landscape"
   },
@@ -436,8 +435,7 @@ export const memories: Memory[] = [
     "tags": [
       "us",
       "everyday",
-      "nature",
-      "celebration"
+      "nature"
     ],
     "aspect": "landscape"
   },
@@ -450,7 +448,7 @@ export const memories: Memory[] = [
     "imageUrl": "/photos/IMG_1646.HEIC",
     "tags": [
       "us",
-      "everyday",
+      "travel",
       "nature",
       "celebration"
     ],

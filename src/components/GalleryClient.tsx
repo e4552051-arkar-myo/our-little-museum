@@ -135,18 +135,18 @@ export function GalleryClient() {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((memory) => {
           const liked = likedIds.has(memory.id);
           return (
             <article
               key={memory.id}
-              className="group rounded-3xl border border-rose-200/80 bg-white/90 p-3 shadow-sm transition-transform duration-300 will-change-transform hover:-translate-y-0.5 hover:shadow-md"
+              className="group h-full overflow-hidden rounded-3xl border border-rose-200/80 bg-white/90 shadow-sm transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-lg active:translate-y-0 active:scale-[0.995] active:shadow-sm"
             >
               <button
                 type="button"
                 onClick={() => openLightbox(memory.id)}
-                className="relative block h-56 w-full overflow-hidden rounded-2xl"
+                className="relative block aspect-[4/3] w-full overflow-hidden rounded-t-3xl active:scale-[0.998]"
                 aria-label={`Open photo: ${memory.title}`}
               >
                 <Image
@@ -156,24 +156,29 @@ export function GalleryClient() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-[1.03]"
                 />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-rose-950/25 via-rose-900/10 to-transparent" />
               </button>
-              <div className="mt-3 flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-rose-900">{memory.title}</p>
-                  <p className="text-sm text-rose-900">{memory.caption}</p>
-                  <p className="mt-1 text-xs text-rose-700/90">{formatDate(memory.date)}</p>
-                  {memory.location ? <p className="text-xs text-rose-600">{memory.location}</p> : null}
+              <div className="flex h-full flex-1 flex-col px-5 pb-5 pt-4">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="line-clamp-2 min-w-0 text-sm font-semibold text-rose-900">{memory.title}</p>
+                  <button
+                    type="button"
+                    onClick={() => toggleLike(memory.id)}
+                    className={`shrink-0 rounded-full px-2 py-1 text-xs ${
+                      liked ? "bg-rose-500 text-white" : "bg-rose-100 text-rose-800"
+                    }`}
+                    aria-pressed={liked}
+                  >
+                    💗 react
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => toggleLike(memory.id)}
-                  className={`shrink-0 rounded-full px-2 py-1 text-xs ${
-                    liked ? "bg-rose-500 text-white" : "bg-rose-100 text-rose-800"
-                  }`}
-                  aria-pressed={liked}
-                >
-                  💗 react
-                </button>
+
+                <p className="mt-2 line-clamp-3 text-sm text-rose-900">{memory.caption}</p>
+
+                <div className="mt-auto pt-3">
+                  <p className="text-xs text-rose-700/90">{formatDate(memory.date)}</p>
+                  {memory.location ? <p className="line-clamp-2 text-xs text-rose-600">{memory.location}</p> : null}
+                </div>
               </div>
             </article>
           );
